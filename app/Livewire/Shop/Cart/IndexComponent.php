@@ -23,7 +23,16 @@ class IndexComponent extends Component
 
 
     }
-    public function delete_item(){
+    public function delete_item($itemId)
+    {
+        $cartItems = Cart::content();
+        
+        // Buscar el rowId correspondiente al itemId
+        $item = $cartItems->where('id', $itemId)->first();
 
-}
+        if ($item) {
+            Cart::remove($item->rowId);
+        }
+    }
+    
 }

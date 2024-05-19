@@ -30,7 +30,7 @@
                       
                         <td>
                             <button type="button" 
-                            wire:click="delete_item{{$item->id}}" 
+                            wire:click="delete_item('{{ $item->id }}')" 
                             class="btn btn-danger">Eliminar</button>
                         </td>
                     </tr>
@@ -39,6 +39,7 @@
                 </tbody>
             </table>
             <h3>Total:$ {{Cart::total()}}  </h3>
+            <a href="{{route('checkout')}}" class="btn btn-primary"> pagar</a>
   
         
 
